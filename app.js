@@ -13,16 +13,16 @@ var usersRouter = require('./routes/users/users.routes');
 var logsRouter = require('./routes/logs/logs.routes');
 
 var app = express();
-mongoose.connect('mongodb://demo:demo123@ds261277.mlab.com:61277/demo-01', {useNewUrlParser: true}).then(res => {
-  console.log('connected');
-}).catch(err => {
-  console.error(err)
-});
+// mongoose.connect('mongodb://demo:demo123@ds261277.mlab.com:61277/demo-01', {useNewUrlParser: true}).then(res => {
+  // console.log('connected');
+// }).catch(err => {
+  // console.error(err)
+// });  
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+// app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
@@ -31,7 +31,7 @@ app.use('/logs', logsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  // next(createError(404));
 });
 
 // error handler
